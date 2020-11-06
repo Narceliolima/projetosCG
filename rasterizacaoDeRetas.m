@@ -13,7 +13,10 @@ function [v1,v2] = rasterizacaoDeRetas(p1,p2)
     while x < (p2(1)-1)
       x = x + 1;
       y = m*x + b;
-      [v1(x+1),v2(x+1)] = produzFragmento(x,y);
+      x
+      y
+      #[v1(x+1),v2(x+1)] = produzFragmento(x,y);
+      [v1(end+1),v2(end+1)] = produzFragmento(x,y);
     endwhile
   else
     m = dx/dy;
@@ -21,7 +24,7 @@ function [v1,v2] = rasterizacaoDeRetas(p1,p2)
     while y < (p2(2)-1)
       y = y + 1;
       x = m*y + b;
-      [v1(y+1),v2(y+1)] = produzFragmento(x,y);
+      [v1(end+1),v2(end+1)] = produzFragmento(x,y);
     endwhile
   endif
   
