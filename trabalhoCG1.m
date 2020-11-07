@@ -3,6 +3,32 @@ clear
 
 #---------------------------//---------------------------#
 #Reta com pontos em (0,0) e (3,9) plotada em uma matriz de 10 por 10
+#{
+Primeiro definimos o tamanho da matriz da qual queremos plotar a reta, depois
+definimos dois pontos que serão sua representação no plano, então com esses
+valores definidos será criado um vetor contendo os valores de x dos dois 
+pontos, e outro com os valores y, tais valores são passados por parametro
+para a função de rasterização de retas, que retorna 2 vetores, um contendo
+todos os pontos x e o outro os pontos de y, sendo a junção desses pontos uma 
+representação do pixel que fará a descrição da reta naquele plano.
+Após a rasterização geraremos uma matriz de zeros com o tamanho que foi definido
+no começo do algoritmo, tendo de posse a matriz ela será passado por parametro
+na função que desenha reta, junto com os vetores de x e y, e dentro dessa
+função será feito uma conversão das coordenadas, já que no modelo de grafico
+os pontos x e y começam da esquerda pra direita partindo do ponto inferior
+esquerda, enquanto no modelo de imagem o ponto de partida e superior esquerda,
+então durante a conversão vai atribuindo valor 1 aos pixels que irão compor a
+reta, e ao fim do algoritmo retorna a matriz com a reta desenhada.
+Com isso a partir da matriz é gerada uma imagem, e vemos graficamente o
+resultado que foi gerado pelo algoritmo.
+Para as demais imagens foi utilizado um algoritmo de rescala, da qual recebia
+como parametro os pontos de entrada e um valor da qual seria utilizado para
+multiplicar os valores de entrada, devolvendo os valores numa nova escala.
+Para algumas outras foram passados parametros em que o ponto 2 tinha as
+coordenadas x > y, e x < y, alterando o fluxo que o algoritmo de rasterização
+ia tomar para poder rasterizar a reta.
+#}
+
 tam = 10;
 p1 = [0 0];
 p2 = [3 9];

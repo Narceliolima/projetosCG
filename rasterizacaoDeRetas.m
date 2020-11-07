@@ -1,4 +1,11 @@
 function [v1,v2] = rasterizacaoDeRetas(p1,p2)
+#{
+Recebendo por parametro 2 vetores da qual um será os pontos x e o outro os pontos
+y, o algoritmo de rasterização "marca" em um vetor os pontos necessário para
+compor a reta em uma imagem matricial, se o valor de dx > dy, será feito o
+incremento no valor de x, caso dx < dy então será feito o incremento no valor de
+y.
+#}
    
   x = p1(1);
   y = p1(2);
@@ -13,9 +20,6 @@ function [v1,v2] = rasterizacaoDeRetas(p1,p2)
     while x < (p2(1)-1)
       x = x + 1;
       y = m*x + b;
-      x
-      y
-      #[v1(x+1),v2(x+1)] = produzFragmento(x,y);
       [v1(end+1),v2(end+1)] = produzFragmento(x,y);
     endwhile
   else
