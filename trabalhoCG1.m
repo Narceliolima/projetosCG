@@ -1,5 +1,6 @@
 clc
 clear
+close all
 
 #---------------------------//---------------------------#
 #Reta com pontos em (0,0) e (3,9) plotada em uma matriz de 10 por 10
