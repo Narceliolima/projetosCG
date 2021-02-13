@@ -1,8 +1,6 @@
 function plotaFigura(matrizPontos,matrizArestas,cor)
   
   [n,m] = size(matrizArestas);
-  matrizPontos
-  matrizArestas
   
   hold on
   
