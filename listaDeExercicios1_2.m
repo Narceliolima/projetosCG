@@ -60,9 +60,9 @@ arestas = [1 2;2 4;4 3;3 1;5 7;7 8;8 6;6 5;1 5;3 7;4 8;2 6];
 # Coordenada da camera
 eye = [-2 1 1];
 # Centro da figura
-centroObj = [(max(pontos(:,1))+min(pontos(:,1)))/2 ...
-             (max(pontos(:,2))+min(pontos(:,2)))/2 ...
-             (max(pontos(:,3))+min(pontos(:,3)))/2];
+at = [(max(pontos(:,1))+min(pontos(:,1)))/2 ...
+      (max(pontos(:,2))+min(pontos(:,2)))/2 ...
+      (max(pontos(:,3))+min(pontos(:,3)))/2];
              
 tamanho = length(pontos)
 # Vetor de vertice estendido
@@ -77,11 +77,11 @@ figure
 hold on
 plotaFigura3D(pontos,arestas,"r"); # Plota a figura inicial
 # Plota o ponto central da figura
-plot3(centroObj(1),centroObj(2),centroObj(3),'*','MarkerSize',25);
-n = centroObj - eye
+plot3(at(1),at(2),at(3),'*','MarkerSize',25);
+n = at - eye
 n = n/(sqrt(dot(n, n))) # Normaliza n
 # Gera vetor aleatório para fazer o produto vetorial e encontrar u
-vetorAuxiliar = [4 8 2] 
+vetorAuxiliar = [4 8 2]
 u = cross(n,vetorAuxiliar)
 u = u/(sqrt(dot(u, u))) # Normaliza u
 v = cross(n,u)
@@ -97,7 +97,7 @@ plotaFigura3D(pontosMundo,arestas,"g");
 
 
 eye = [-3 -1 1];
-n = centroObj - eye
+n = at - eye
 n = n/(sqrt(dot(n, n))) # Normaliza n
 # Gera vetor aleatório para fazer o produto vetorial e encontrar u
 u = cross(n,vetorAuxiliar)

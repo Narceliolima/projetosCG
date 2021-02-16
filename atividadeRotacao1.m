@@ -26,7 +26,7 @@ legend("Original","M1","M2","M3","M4");
 
 # Ele rotacionou em relação ao ponto (0,0)
 # b)
-Olinha = [-1 -1;1 -1;-1 1;1 1]; # O'
+Olinha = [-1 -1;1 -1;1 1;-1 1;-1 -1]; # O'
 figure
 hold on
 
