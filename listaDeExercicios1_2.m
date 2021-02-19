@@ -15,11 +15,11 @@ at = [(max(vertices(:,1))+min(vertices(:,1)))/2 ...
 tamanho = length(vertices);
 # Vetor de vertice estendido
 verticesE = [];          
-
+# Ao fim desse laço o vetor de vertice estendido será de tamanhox3
 for i = 1:tamanho
   verticesE = [verticesE;vertices(i,:) 1];
 end
-# Ao fim desse laço o vetor de vertice estendido será de 1x3
+
 hold on
 plotaFigura(vertices,arestas,'b'); # Plota a figura inicial
 plot(at(1),at(2),'*','MarkerSize',25); # Plota o ponto central da figura
@@ -31,7 +31,7 @@ T = [1 0 -eye(1);0 1 -eye(2);0 0 1]
 R = [u 0;n 0;0 0 1]
 baseEye = R*T # Base da camera é R*T
 # as novas coordenadas do vertice será o produto da baseEye com 
-#o vertice extendido
+# o vertice extendido
 verticesMundo = verticesE * inv(baseEye) 
 figure
 plotaFigura(verticesMundo,arestas,"r") # Plota nova figura
@@ -63,15 +63,14 @@ eye = [-2 1 1];
 at = [(max(pontos(:,1))+min(pontos(:,1)))/2 ...
       (max(pontos(:,2))+min(pontos(:,2)))/2 ...
       (max(pontos(:,3))+min(pontos(:,3)))/2];
-             
+      
 tamanho = length(pontos)
 # Vetor de vertice estendido
 pontosE = []
-
+# Ao fim desse laço o vetor de vertice estendido será de tamanhox4
 for i = 1:tamanho
   pontosE = [pontosE;pontos(i,:) 1];
 end
-# Ao fim desse laço o vetor de vertice estendido será de 1x4
 
 figure            
 hold on
@@ -80,8 +79,9 @@ plotaFigura3D(pontos,arestas,"r"); # Plota a figura inicial
 plot3(at(1),at(2),at(3),'*','MarkerSize',25);
 n = at - eye
 n = n/(sqrt(dot(n, n))) # Normaliza n
-# Gera vetor aleatório para fazer o produto vetorial e encontrar u
-vetorAuxiliar = [4 8 2]
+# É gerado um vetorAuxiliar aleatório para fazer o produto vetorial
+# e encontrar u
+vetorAuxiliar = [1 0 -2]
 u = cross(n,vetorAuxiliar)
 u = u/(sqrt(dot(u, u))) # Normaliza u
 v = cross(n,u)
@@ -99,7 +99,7 @@ plotaFigura3D(pontosMundo,arestas,"g");
 eye = [-3 -1 1];
 n = at - eye
 n = n/(sqrt(dot(n, n))) # Normaliza n
-# Gera vetor aleatório para fazer o produto vetorial e encontrar u
+# Utiliza o vetorAuxiliar para fazer o produto vetorial com n e encontrar u
 u = cross(n,vetorAuxiliar)
 u = u/(sqrt(dot(u, u))) # Normaliza u
 v = cross(n,u)
