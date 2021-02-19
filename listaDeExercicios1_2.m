@@ -2,6 +2,7 @@ clc
 clear
 close all
 
+# 1) Questão
 % lista de vertices
 vertices = [2 2;1 1;3 1;1 0;3 0];
 % lista de arestas
@@ -34,7 +35,7 @@ baseEye = R*T # Base da camera é R*T
 # o vertice extendido
 verticesMundo = verticesE * inv(baseEye) 
 figure
-plotaFigura(verticesMundo,arestas,"r") # Plota nova figura
+plotaFigura(verticesMundo,arestas,"r") # Plota nova figura para o eye[-3 1]
 
 
 # Coordenada da camera
@@ -48,9 +49,10 @@ R = [u 0;n 0;0 0 1]
 baseEye = R*T
 verticesMundo = verticesE * inv(baseEye)
 figure
-plotaFigura(verticesMundo,arestas,"g") # Plota nova figura
+plotaFigura(verticesMundo,arestas,"g") # Plota nova figura para o eye[-2 2]
 
 
+# 2) Questão
 % pontos da base inferior
 pontos = [1 1 1;3 1 1;1 4 1;3 4 1];
 % pontos da base superior
@@ -93,9 +95,10 @@ baseEye = R*T
 # o vertice extendido
 pontosMundo = pontosE * inv(baseEye)
 figure
-plotaFigura3D(pontosMundo,arestas,"g");
+plotaFigura3D(pontosMundo,arestas,"g"); # Plota nova figura para o eye[-2 1 1]
 
 
+# Coordenada da camera
 eye = [-3 -1 1];
 n = at - eye
 n = n/(sqrt(dot(n, n))) # Normaliza n
@@ -109,4 +112,4 @@ R = [u 0;v 0;n 0;0 0 0 1]
 baseEye = R*T
 pontosMundo = pontosE * inv(baseEye)
 figure
-plotaFigura3D(pontosMundo,arestas,"b");
+plotaFigura3D(pontosMundo,arestas,"b"); # Plota nova figura para o eye[-3 -1 1]

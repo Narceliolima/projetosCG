@@ -1,3 +1,4 @@
+#Função usada para plot de figuras bidimensionais
 function plotaFigura(matrizPontos,matrizArestas,cor)
   
   [n,m] = size(matrizArestas);

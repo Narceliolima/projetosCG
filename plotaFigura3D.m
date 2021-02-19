@@ -1,3 +1,4 @@
+#Função usada para plot de figuras tridimensionais
 function plotaFigura3D(matrizPontos,matrizArestas,cor)
   
   [n,m] = size(matrizArestas);
